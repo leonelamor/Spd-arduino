@@ -1,4 +1,13 @@
 #define LED_BLANCO 7
+/*
+Leonel Emiliano
+Nadia Morán
+Luciano Bardallo
+Thiago Vilani
+Pablo Scarrozza
+*/
+
+#define LED_BLANCO 7
 #define LED_AZUL 6
 #define LED_NARANJA 5
 #define PULSADOR 4
@@ -30,14 +39,14 @@ void loop()
         digitalWrite(LED_BLANCO, LOW);
         delay(200);
       }
-      else{
-        if(contador %7 == 0){
-            digitalWrite(LED_NARANJA, HIGH);
-            delay(1000);
-            digitalWrite(LED_NARANJA, LOW);
-            delay(200);
-          }
-        }
+      
+   if(contador %7 == 0){
+      digitalWrite(LED_NARANJA, HIGH);
+      delay(1000);
+      digitalWrite(LED_NARANJA, LOW);
+      delay(200);
+    }
+        
     }
     contador++;
     Serial.println(contador);
