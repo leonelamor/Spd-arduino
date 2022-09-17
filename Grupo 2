@@ -1,0 +1,45 @@
+#define LED_BLANCO 7
+#define LED_AZUL 6
+#define LED_NARANJA 5
+#define PULSADOR 4
+
+void setup()
+{
+  pinMode(LED_BLANCO, OUTPUT);
+  pinMode(LED_AZUL, OUTPUT);
+  pinMode(LED_NARANJA, OUTPUT);
+  pinMode(PULSADOR, INPUT);
+  Serial.begin(9600);
+}
+
+int contador=0;
+
+void loop()
+{
+  if(digitalRead(PULSADOR) == HIGH){
+    if(contador %2 == 0){
+    	digitalWrite(LED_AZUL, HIGH);
+    	delay(1000);
+    	digitalWrite(LED_AZUL, LOW);
+    	delay(200);
+    }
+    else{
+      if(contador %2 != 0){
+      	digitalWrite(LED_BLANCO, HIGH);
+        delay(1000);
+        digitalWrite(LED_BLANCO, LOW);
+        delay(200);
+      }
+      else{
+        if(contador %7 == 0){
+            digitalWrite(LED_NARANJA, HIGH);
+            delay(1000);
+            digitalWrite(LED_NARANJA, LOW);
+            delay(200);
+          }
+        }
+    }
+    contador++;
+    Serial.println(contador);
+  }
+}
